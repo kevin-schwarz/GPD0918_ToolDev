@@ -5,28 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GPD0918_ToolDev"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <!-- Ein StackPanel sortiert Elemente von oben nach unten 
-        / links nach rechts (oder umgekehrt). -->
-    <!-- Ein WrapPanel sortiert nebeneinander und dann von oben nach unten.-->
-    <!-- Ein DockPanel dockt Elemente an den Seiten an. -->
-    <!-- Ein Canvas erlaubt beliebiges platzieren. -->
-    <DockPanel LastChildFill="False">
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                <MenuItem Header="_New"/>
-                <MenuItem Header="_Open"/>
-                <MenuItem Header="_Recent">
-                    <MenuItem Header="File 1"/>
-                    <MenuItem Header="File 2"/>
-                    <MenuItem Header="File 3"/>
-                </MenuItem>
-                <!-- Mnemonics -->
-                <MenuItem Header="_Quit" Click="QuitMenuItem_Click"/>
-            </MenuItem>
-        </Menu>
-        <StatusBar DockPanel.Dock="Bottom">
-            Status
-        </StatusBar>
-    </DockPanel>
+        Title="Launcher" 
+        Height="450" Width="800"
+        MinHeight="150" MinWidth="300"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <!-- Spalten -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <!-- Zeilen -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Name="lblName" Grid.Column="1" Grid.Row="0" Content="Name" FontSize="36" FontWeight="Bold"/>
+        <Label Name="lblTimePlayed" Grid.Column="2" Grid.Row="0" Content="Time Played" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center"/>
+        <AccessText Name="atxtPatchNotes" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" FontSize="16">
+            Patch Notes: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
+Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. 
+        </AccessText>
+        <Button Name="btnStart" Grid.Column="3" Grid.Row="2" Content="Start" FontSize="16" Margin="15,0,0,0" Click="BtnStart_Click"/>
+        <ProgressBar Name="pbrInstallation" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="0"/>
+    </Grid>
 </Window>
