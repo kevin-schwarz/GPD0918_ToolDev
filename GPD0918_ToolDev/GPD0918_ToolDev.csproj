@@ -63,8 +63,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="XMLSerializer.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="IGameSerializer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -73,6 +75,8 @@
   <ItemGroup>
     <Compile Include="PartialTest.Test2.cs" />
     <Compile Include="PartialTest.Test.cs" />
+    <Compile Include="BinarySerializer.cs" />
+    <Compile Include="PlainSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

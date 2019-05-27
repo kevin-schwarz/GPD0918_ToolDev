@@ -22,16 +22,24 @@ namespace GPD0918_ToolDev
     public partial class MainWindow : Window
     {
 
+        public IGameSerializer GameSerializer
+            = new XMLSeriaizer();
+
         public Game Game;
 
         public MainWindow()
         {
             // ein spiel faken
             Game = new Game();
-            Game.Name = "WPF Game";
+            Game.Name = "Internet Explorer";
             Game.PatchNotes = "Lorem Ipsum";
             Game.TimePlayed = 0;
-            Game.InstallLocation = "C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe";
+            Game.InstallLocation 
+                = "C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe";
+
+            GameSerializer?.Serialize(Game, "C:\\Users\\arbeit\\Downloads\\game1.txt");
+
+            Game = GameSerializer.Deserialize("C:\\Users\\arbeit\\Downloads\\game1.txt");
 
             // das ui vorbereiten
             InitializeComponent();
