@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Game>
+  <Name>Paint</Name>
+  <TimePlayed>0</TimePlayed>
+  <PatchNotes>Lorem Ipsum Dolor Set Amen.</PatchNotes>
+  <InstallLocation>C:\Windows\system32\mspaint.exe</InstallLocation>
+</Game>

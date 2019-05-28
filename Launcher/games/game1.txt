@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Game>
+  <Name>Internet Explorer</Name>
+  <TimePlayed>0</TimePlayed>
+  <PatchNotes>Lorem Ipsum Dolor Set Amen.</PatchNotes>
+  <InstallLocation>C:\Program Files (x86)\Internet Explorer\iexplore.exe</InstallLocation>
+</Game>

@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:GPD0918_ToolDev"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <BitmapImage x:Key="startButtonBackgroundImage" 
+                     UriSource="C:\Users\arbeit\source\repos\GPD0918_ToolDev\Launcher\images/button.png"/>
+        <ImageBrush x:Key="startButtonBackgroundBrush" 
+                    ImageSource="{Binding Mode=OneWay, Source={StaticResource startButtonBackgroundImage}}">
+            
+        </ImageBrush>
     </Application.Resources>
 </Application>

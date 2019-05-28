@@ -25,49 +25,18 @@ namespace GPD0918_ToolDev
         public IGameSerializer GameSerializer
             = new XMLSeriaizer();
 
-        public Game Game;
-
         public MainWindow()
         {
-            // ein spiel faken
-            Game = new Game();
-            Game.Name = "Internet Explorer";
-            Game.PatchNotes = "Lorem Ipsum";
-            Game.TimePlayed = 0;
-            Game.InstallLocation 
-                = "C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe";
-
-            GameSerializer?.Serialize(Game, "C:\\Users\\arbeit\\Downloads\\game1.txt");
-
-            Game = GameSerializer.Deserialize("C:\\Users\\arbeit\\Downloads\\game1.txt");
-
             // das ui vorbereiten
             InitializeComponent();
 
-            // das ui mit dem spiel syncen
-            lblName.Content = Game.Name;
-            atxtPatchNotes.Text = Game.PatchNotes;
-            lblTimePlayed.Content = (new TimeSpan(Game.TimePlayed)).ToString();
+            gameView1.Game 
+                = GameSerializer.Deserialize(".\\games\\game1.txt");
+            gameView1.Sync();
 
-            btnStart.Content = Game.InstallLocation != null ? "Start" : "Install";
-        }
-
-        /// <summary>
-        /// Der Event Handler der aufgerufen wird,
-        /// wenn der Start Button gedrückt wird.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnStart_Click(object sender, RoutedEventArgs e)
-        {
-            if (Game.InstallLocation != null)
-            {
-                Process game = Process.Start(Game.InstallLocation);
-            }
-            else
-            {
-                // todo: install the game
-            }
+            gameView2.Game
+                = GameSerializer.Deserialize(".\\games\\game2.txt");
+            gameView2.Sync();
         }
     }
 }
