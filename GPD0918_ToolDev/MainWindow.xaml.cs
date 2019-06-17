@@ -32,11 +32,6 @@ namespace GPD0918_ToolDev
 
             gameView1.Game 
                 = GameSerializer.Deserialize(".\\games\\game1.txt");
-            gameView1.Sync();
-
-            gameView2.Game
-                = GameSerializer.Deserialize(".\\games\\game2.txt");
-            gameView2.Sync();
         }
     }
 }

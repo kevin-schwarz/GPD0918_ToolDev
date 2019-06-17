@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -11,21 +12,28 @@ namespace GPD0918_ToolDev
     public partial class GameView : UserControl
     {
 
-        public Game Game;
+        public static DependencyProperty gameProperty =
+            DependencyProperty.Register("Game", typeof(Game), typeof(GameView));
+
+        /// <summary>
+        /// Das Spiel, das von dieser Seite angezeigt wird.
+        /// </summary>
+        public Game Game
+        {
+            get
+            {
+                return GetValue(gameProperty) as Game;
+            }
+
+            set
+            {
+                SetValue(gameProperty, value);
+            }
+        }
 
         public GameView()
         {
             InitializeComponent();
-        }
-
-        public void Sync()
-        {
-            // das ui mit dem spiel syncen
-            lblName.Content = Game.Name;
-            atxtPatchNotes.Text = Game.PatchNotes;
-            lblTimePlayed.Content = (new TimeSpan(Game.TimePlayed)).ToString();
-
-            btnStart.Content = Game.InstallLocation != null ? "Start" : "Install";
         }
 
         /// <summary>
@@ -36,14 +44,22 @@ namespace GPD0918_ToolDev
         /// <param name="e"></param>
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            if (Game.InstallLocation != null)
+            if (Game.InstallLocation != null && Game.InstallLocation.Length > 0)
             {
-                Process game = Process.Start(Game.InstallLocation);
+                //Process game = Process.Start(Game.InstallLocation);
+                Game.InstallLocation = "";
             }
             else
             {
-                // todo: install the game
+                (new Thread(InstallGame)).Start();
             }
+        }
+
+        private void InstallGame()
+        {
+            // todo: install the game
+            Thread.Sleep(3000);
+            Game.InstallLocation = "Irgendwo";
         }
 
     }

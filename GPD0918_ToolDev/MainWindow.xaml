@@ -11,22 +11,14 @@
         MinHeight="150" MinWidth="300"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <sys:String x:Key="someString">Hallo Welt</sys:String>
+        <local:Game x:Key="secondGame" Name="Game2" InstallLocation="" TimePlayed="9999" PatchNotes="🏴‍☠️ Lorem Ipsum 😈" />
     </Window.Resources>
-    <TabControl TabStripPlacement="Left" Background="{x:Null}">
+    <TabControl TabStripPlacement="Left">
         <TabItem Header="Game1">
-            <local:GameView x:Name="gameView1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <local:GameView x:Name="gameView1"/>
         </TabItem>
         <TabItem Header="Game2">
-            <local:GameView x:Name="gameView2"/>
-        </TabItem>
-        <TabItem Header="Test">
-            <StackPanel>
-                <Button Background="{DynamicResource startButtonBackgroundBrush}">Test</Button>
-                <Label Content="{Binding Mode=OneWay, Source={StaticResource someString}}"/>
-                <Label x:Name="TestLabel" Content="{Binding Text, ElementName=TestTextBox}"></Label>
-                <TextBox x:Name="TestTextBox"></TextBox>
-            </StackPanel>
+            <local:GameView x:Name="gameView2" Game="{DynamicResource secondGame}"/>
         </TabItem>
     </TabControl>
 </Window>

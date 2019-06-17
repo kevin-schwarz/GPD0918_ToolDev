@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPD0918_ToolDev", "GPD0918_ToolDev\GPD0918_ToolDev.csproj", "{D945177F-0DA3-4281-B589-BE5B2050B0DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadTest", "ThreadTest\ThreadTest.csproj", "{8FC6887F-4C43-46BE-876B-0868487E3E08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D945177F-0DA3-4281-B589-BE5B2050B0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D945177F-0DA3-4281-B589-BE5B2050B0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D945177F-0DA3-4281-B589-BE5B2050B0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FC6887F-4C43-46BE-876B-0868487E3E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FC6887F-4C43-46BE-876B-0868487E3E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FC6887F-4C43-46BE-876B-0868487E3E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FC6887F-4C43-46BE-876B-0868487E3E08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

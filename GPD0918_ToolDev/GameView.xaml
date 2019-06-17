@@ -1,11 +1,15 @@
-﻿<UserControl x:Class="GPD0918_ToolDev.GameView"
+﻿<UserControl x:Name="userControl" x:Class="GPD0918_ToolDev.GameView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GPD0918_ToolDev"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+    <UserControl.Resources>
+        <local:TicksToDateTimeStringConverter x:Key="timeConverter"/>
+        <local:StartOrInstallConverter x:Key="startOrInstallConverter"/>
+    </UserControl.Resources>
     <Grid>
         <!-- Spalten -->
         <Grid.ColumnDefinitions>
@@ -22,14 +26,24 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <Label Name="lblName" Grid.Column="1" Grid.Row="0" Content="Name" FontSize="36" FontWeight="Bold"/>
-        <Label Name="lblTimePlayed" Grid.Column="2" Grid.Row="0" Content="Time Played" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <AccessText Name="atxtPatchNotes" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" FontSize="16">
-            Patch Notes: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        </AccessText>
-        <Button Name="btnStart" Grid.Column="3" Grid.Row="2" Width="50" Content="" FontSize="16" Margin="15,0,0,0" Click="BtnStart_Click" Background="{Binding Mode=OneWay, Source={StaticResource startButtonBackgroundBrush}}" BorderBrush="{x:Null}"/>
+
+        <TextBox Name="boxName" Grid.Column="1" Grid.Row="0" 
+                 Text="{Binding Path=Game.Name, ElementName=userControl, UpdateSourceTrigger=PropertyChanged}" 
+                 FontSize="36" FontWeight="Bold"/>
+        
+        <Label Name="lblTimePlayed" Grid.Column="2" Grid.Row="0"
+               Content="{Binding Game.TimePlayed, ElementName=userControl,
+                        Converter={StaticResource timeConverter}, ConverterParameter='G'}"
+               FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center"/>
+        
+        <AccessText Name="atxtPatchNotes" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" 
+                    TextWrapping="Wrap" FontSize="16" 
+                    Text="{Binding Path=Game.PatchNotes, ElementName=userControl}"/>
+        
+        <Button Name="btnStart" Grid.Column="3" Grid.Row="2" Width="50" 
+                Content="{Binding Game.InstallLocation, ElementName=userControl,
+                         Converter={StaticResource startOrInstallConverter}}" 
+                FontSize="16" Margin="15,0,0,0" Click="BtnStart_Click"/>
         <ProgressBar Name="pbrInstallation" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="0"/>
     </Grid>
 </UserControl>

@@ -70,6 +70,8 @@
     <Compile Include="GameView.xaml.cs">
       <DependentUpon>GameView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StartOrInstallConverter.cs" />
+    <Compile Include="TicksToDateTimeStringConverter.cs" />
     <Compile Include="XMLSerializer.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="Game.cs" />
