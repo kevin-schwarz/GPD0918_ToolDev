@@ -1,4 +1,4 @@
-﻿<Window x:Class="GPD0918_ToolDev.MainWindow"
+﻿<Window x:Name="window" x:Class="GPD0918_ToolDev.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,15 +10,16 @@
         Height="450" Width="800"
         MinHeight="150" MinWidth="300"
         WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <local:Game x:Key="secondGame" Name="Game2" InstallLocation="" TimePlayed="9999" PatchNotes="🏴‍☠️ Lorem Ipsum 😈" />
-    </Window.Resources>
-    <TabControl TabStripPlacement="Left">
-        <TabItem Header="Game1">
-            <local:GameView x:Name="gameView1"/>
-        </TabItem>
-        <TabItem Header="Game2">
-            <local:GameView x:Name="gameView2" Game="{DynamicResource secondGame}"/>
-        </TabItem>
+    <TabControl Name="tbcGames" ItemsSource="{Binding Path=GameList, ElementName=window}" TabStripPlacement="Left">
+        <TabControl.ItemTemplate>
+            <DataTemplate>
+                <Label Content="{Binding Name}" />
+            </DataTemplate>
+        </TabControl.ItemTemplate>
+        <TabControl.ContentTemplate>
+            <DataTemplate>
+                <local:GameView Game="{Binding}" />
+            </DataTemplate>
+        </TabControl.ContentTemplate>
     </TabControl>
 </Window>
