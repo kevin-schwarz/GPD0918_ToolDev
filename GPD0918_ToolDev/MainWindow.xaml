@@ -10,16 +10,23 @@
         Height="450" Width="800"
         MinHeight="150" MinWidth="300"
         WindowStartupLocation="CenterScreen">
-    <TabControl Name="tbcGames" ItemsSource="{Binding Path=GameList, ElementName=window}" TabStripPlacement="Left">
-        <TabControl.ItemTemplate>
-            <DataTemplate>
-                <Label Content="{Binding Name}" />
-            </DataTemplate>
-        </TabControl.ItemTemplate>
-        <TabControl.ContentTemplate>
-            <DataTemplate>
-                <local:GameView Game="{Binding}" />
-            </DataTemplate>
-        </TabControl.ContentTemplate>
+    <TabControl>
+        <TabItem Header="Games">
+            <TabControl Name="tbcGames" ItemsSource="{Binding Path=GameList, ElementName=window}" TabStripPlacement="Left">
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Name}" />
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <local:GameView Game="{Binding}" />
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </TabItem>
+        <TabItem Header="Admin">
+            <local:AdminView />
+        </TabItem>
     </TabControl>
 </Window>

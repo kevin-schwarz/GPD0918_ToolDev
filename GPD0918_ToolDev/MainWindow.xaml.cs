@@ -23,24 +23,13 @@ namespace GPD0918_ToolDev
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        public ObservableCollection<Game> GameList
-            = new ObservableCollection<Game>();
-
-        public IGameSerializer GameSerializer
-            = new XMLSeriaizer();
-
+        
         public MainWindow()
         {
             // das ui vorbereiten
             InitializeComponent();
-
-            foreach (string file in Directory.GetFiles("./games", "*.xml"))
-            {
-                GameList.Add(GameSerializer.Deserialize(file));
-            }
-
-            tbcGames.ItemsSource = GameList;
+            
+            tbcGames.ItemsSource = ((App)App.Current).GameList;
         }
     }
 }
