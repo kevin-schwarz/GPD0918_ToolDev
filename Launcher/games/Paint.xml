@@ -2,6 +2,6 @@
 <Game>
   <Name>Paint</Name>
   <TimePlayed>0</TimePlayed>
-  <PatchNotes>Lorem Ipsum Dolor Set Amen.</PatchNotes>
+  <PatchNotes>Lorem Ipsum Dolor Set Amen. TEST</PatchNotes>
   <InstallLocation>C:\Windows\system32\mspaint.exe</InstallLocation>
 </Game>

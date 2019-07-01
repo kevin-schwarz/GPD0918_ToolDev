@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+using IOPath = System.IO.Path;
 
 namespace GPD0918_ToolDev
 {
@@ -56,5 +59,26 @@ namespace GPD0918_ToolDev
         {
             ((App)App.Current).GameList.Add(new Game());
         }
+
+        private void OnRemoveButtonClicked(object sender, RoutedEventArgs e)
+        {
+            // das ausgewählte game aus der liste entfernen
+            Game toRemove = lstGames.SelectedItem as Game;
+            ((App)App.Current).GameList.Remove(toRemove);
+
+            // die ausgewählte game datei löschen
+            if(File.Exists(IOPath.Combine("./games", toRemove.FileName)))
+            {
+                File.Delete(IOPath.Combine("./games", toRemove.FileName));
+            }
+        }
     }
 }
+
+
+
+// nach einer änderung
+// intervall
+// # beim schliessen 
+// strg-s
+// button

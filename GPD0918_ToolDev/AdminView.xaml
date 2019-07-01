@@ -8,11 +8,18 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
     <DockPanel>
         <DockPanel DockPanel.Dock="Left">
-            <Button DockPanel.Dock="Bottom" Click="OnAddGameButtonClicked">Add</Button>
+            <StackPanel DockPanel.Dock="Bottom">
+                <Button Click="OnAddGameButtonClicked">Add</Button>
+                <Button Click="OnRemoveButtonClicked">Remove</Button>
+            </StackPanel>
+            
             <ListView Name="lstGames" DockPanel.Dock="top" MinWidth="300" SelectionChanged="OnGameSelectionChanged" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Label Content="{Binding Name}" />
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Name}" />
+                            <Label Content="{Binding FileName}" />
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

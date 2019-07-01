@@ -12,6 +12,22 @@ namespace GPD0918_ToolDev
     public class Game : INotifyPropertyChanged
     {
 
+        public string FileName
+        {
+            get
+            {
+                string tempName = $"{m_name}.xml";
+                char[] invalidChars = System.IO.Path.GetInvalidFileNameChars();
+                
+                foreach(char invalid in invalidChars)
+                {
+                    tempName = tempName.Replace(invalid.ToString(), "");
+                }
+
+                return tempName;
+            }
+        }
+
         // todo: icon
 
         /// <summary>

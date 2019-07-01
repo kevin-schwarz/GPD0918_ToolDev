@@ -19,7 +19,7 @@ namespace GPD0918_ToolDev
                 throw new InvalidDataException("No valid Game xml.");
 
             Game game = new Game();
-
+                
             game.Name = rootElement.Element("Name").Value;
             game.TimePlayed = long.Parse(rootElement.Element("TimePlayed").Value);
             game.InstallLocation = rootElement.Element("InstallLocation").Value;
@@ -55,7 +55,8 @@ namespace GPD0918_ToolDev
             XElement rootElement = new XElement("Game");
 
             XElement name = new XElement("Name");
-            name.Value = _game.Name;
+            name.Value = _game.Name ?? "";
+            // name.Value = _game.Name == null ? "" : _game.Name;
             rootElement.Add(name);
 
             XElement timePlayed = new XElement("TimePlayed");
@@ -63,11 +64,11 @@ namespace GPD0918_ToolDev
             rootElement.Add(timePlayed);
 
             XElement patchNotes = new XElement("PatchNotes");
-            patchNotes.Value = _game.PatchNotes;
+            patchNotes.Value = _game.PatchNotes ?? "";
             rootElement.Add(patchNotes);
 
             XElement installLocation = new XElement("InstallLocation");
-            installLocation.Value = _game.InstallLocation;
+            installLocation.Value = _game.InstallLocation ?? "";
             rootElement.Add(installLocation);
 
             // element als root node setzten

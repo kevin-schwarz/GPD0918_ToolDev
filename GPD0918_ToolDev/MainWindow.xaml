@@ -10,9 +10,12 @@
         Height="450" Width="800"
         MinHeight="150" MinWidth="300"
         WindowStartupLocation="CenterScreen">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
+    </Window.CommandBindings>
     <TabControl>
         <TabItem Header="Games">
-            <TabControl Name="tbcGames" ItemsSource="{Binding Path=GameList, ElementName=window}" TabStripPlacement="Left">
+            <TabControl Name="tbcGames" ItemsSource="{Binding Path=GameList, ElementName=App}" TabStripPlacement="Left">
                 <TabControl.ItemTemplate>
                     <DataTemplate>
                         <Label Content="{Binding Name}" />

@@ -31,5 +31,10 @@ namespace GPD0918_ToolDev
             
             tbcGames.ItemsSource = ((App)App.Current).GameList;
         }
+
+        private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            ((App)App.Current).SaveAll();
+        }
     }
 }
