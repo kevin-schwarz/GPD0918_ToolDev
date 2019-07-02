@@ -10,6 +10,8 @@ public enum ItemType
 public class Item : MonoBehaviour
 {
 
+    public string Name;
+
     [Header("Market Data")]
     [Range(0, 100)]
     public int Price;
