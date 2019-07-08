@@ -4,7 +4,10 @@ using UnityEngine;
 
 public enum ItemType
 {
-    WEAPON, SHIELD, POTION
+    NONE    = 0,
+    WEAPON  = 1,
+    SHIELD  = 2,
+    POTION  = 4
 }
 
 public class Item : MonoBehaviour

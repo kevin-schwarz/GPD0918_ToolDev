@@ -64,7 +64,10 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\InventoryEditor.cs" />
     <Compile Include="Assets\Editor\InventoryEntryPropertyDrawer.cs" />
+    <Compile Include="Assets\Editor\ItemsTreeView.cs" />
     <Compile Include="Assets\Editor\NewEditorScript.cs" />
+    <Compile Include="Assets\Editor\SomeWindow.cs" />
+    <Compile Include="Assets\Editor\TreeViewWindow.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/arbeit/Desktop/ToolDev/Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
